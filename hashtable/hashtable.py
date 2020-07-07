@@ -102,7 +102,25 @@ class HashTable:
         # Otherwise we need to put the thing here.
         else:
             self.data[index] = hst
-            
+
+        # while node is not null, if you come across a node with the same key just change the value with the new value otherwise check the next node, once it reaches the end add the new node
+        # index = self.hash_index(key)
+        # hst = HashTableEntry(key, value)
+        # node = self.data[index]
+
+        # if node is None:
+        #     self.data[index] = hst
+        # else:
+        #     cur = self.data[index]
+        #     while cur:
+        #         if cur.key == key:
+        #             cur.value = value
+        #         elif cur.next:
+        #             cur = cur.next
+        #         else:
+        #             break
+        #         cur.next = hst
+
     def delete(self, key):
         """
         Remove the value stored with the given key.
