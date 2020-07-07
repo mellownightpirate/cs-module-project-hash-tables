@@ -153,7 +153,17 @@ class HashTable:
         Implement this.
         """
         # Your code here
-        pass
+        new_ht = HashTable(new_capacity)
+        for entry in self.data:
+            if entry:
+                new_ht.put(entry.key, entry.value)
+                if entry.next:
+                    current = entry
+                    while current.next:
+                        current = current.next
+                        new_ht.put(current.key, current.value)
+        self.data = new_ht.data
+        self.capacity = new_ht.capacity
 
 if __name__ == "__main__":
     ht = HashTable(8)
