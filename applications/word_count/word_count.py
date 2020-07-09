@@ -1,6 +1,19 @@
+import re
+# '\\\\' is required to escape backslash '\'
+ignore = re.compile('[-\\\\":;,.+=\/|\[\]`{}()*^&]')
+
 def word_count(s):
     # Your code here
-
+    strip_ignored = ignore.sub("", s)
+    word_list = strip_ignored.split()
+    ans = {}
+    for word in word_list:
+        lower_word = word.lower()
+        if lower_word in ans:
+            ans[lower_word] += 1
+        else:
+            ans[lower_word] = 1
+    return ans
 
 
 if __name__ == "__main__":
